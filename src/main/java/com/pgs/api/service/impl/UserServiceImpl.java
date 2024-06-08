@@ -3,6 +3,7 @@ package com.pgs.api.service.impl;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -34,7 +35,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public ResponseEntity<UserResponse> updateUser(Long id, UserRequest userRequest) {
+	public ResponseEntity<UserResponse> updateUser(UUID id, UserRequest userRequest) {
 		Optional<User> userOptional = userRepository.findById(id);
 		if (userOptional.isPresent()) {
 			User user = userMapper.toEntity(userRequest);
@@ -46,7 +47,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public ResponseEntity<UserResponse> getUserById(Long id) {
+	public ResponseEntity<UserResponse> getUserById(UUID id) {
 		Optional<User> user = userRepository.findById(id);
 		return user.map(value -> new ResponseEntity<>(userMapper.toResponse(value), HttpStatus.OK))
 				.orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));

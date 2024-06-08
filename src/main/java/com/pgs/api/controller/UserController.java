@@ -2,6 +2,7 @@ package com.pgs.api.controller;
 
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -43,7 +44,7 @@ public class UserController {
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<UserResponse> updateUser(@PathVariable("id") Long id, @Valid @RequestBody final UserRequest user) {
+	public ResponseEntity<UserResponse> updateUser(@PathVariable("id") UUID id, @Valid @RequestBody final UserRequest user) {
 		try {
 			return userService.updateUser(id, user);
 		} catch (Exception e) {
@@ -52,7 +53,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/{id}")
-    public ResponseEntity<UserResponse> getStudentById(@PathVariable(value = "id") Long id){
+    public ResponseEntity<UserResponse> getUserById(@PathVariable(value = "id") UUID id){
         return userService.getUserById(id);
     }
 	

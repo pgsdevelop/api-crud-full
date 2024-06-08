@@ -28,34 +28,4 @@ public class GlobalExceptionHandler {
 		errorResponse.put("errors", errors);
 		return errorResponse;
 	}
-
-//	@ExceptionHandler(MethodArgumentNotValidException.class)
-//	@ResponseStatus(HttpStatus.BAD_REQUEST)
-//	ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException ex) {
-//		final List<HashMap<Object, String>> errors = new ArrayList<>();
-//		final HashMap<Object, String> valores = new HashMap<Object, String>();
-//		
-//		for (final FieldError error : ex.getBindingResult().getFieldErrors()) {
-//			valores.put(error.getField(), error.getDefaultMessage());
-//		}
-//
-//		for (final ObjectError error : ex.getBindingResult().getGlobalErrors()) {
-//			valores.put(error.getObjectName(), error.getDefaultMessage());
-//		}
-//		
-//		if(valores.size() > 0) errors.add(valores);
-//
-//		final ApiErrorExtended apiError = new ApiErrorExtended(ArchErrorCode.TECH_001, ArchErrorCode.TECH_001.getReasonPhrase(), errors);
-//
-//		return handleExceptionInternall(ex, apiError, null, BAD_REQUEST, null);
-//	}
-//	
-//	protected ResponseEntity<Object> handleExceptionInternall(
-//			Exception ex, @Nullable Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
-//
-//		if (HttpStatus.INTERNAL_SERVER_ERROR.equals(status)) {
-//			request.setAttribute(WebUtils.ERROR_EXCEPTION_ATTRIBUTE, ex, WebRequest.SCOPE_REQUEST);
-//		}
-//		return new ResponseEntity<>(body, headers, status);
-//	}
 }

@@ -2,6 +2,7 @@ package com.pgs.api.service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 
@@ -12,9 +13,9 @@ public interface UserService {
 
 	ResponseEntity<UserResponse> saveUser(UserRequest user);
 	
-	ResponseEntity<UserResponse> updateUser(Long id, UserRequest user);
+	ResponseEntity<UserResponse> updateUser(UUID id, UserRequest user);
 	
-	ResponseEntity<UserResponse> getUserById(Long id);
+	ResponseEntity<UserResponse> getUserById(UUID id);
 
 	ResponseEntity<List<UserResponse>> getAllUsers();
 
